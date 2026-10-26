@@ -484,6 +484,11 @@ html.review .rn b{font-weight:800}
 .fict{display:inline-block;vertical-align:middle;font-family:var(--font);font-size:12px;font-weight:700;letter-spacing:.02em;line-height:1.2;color:var(--note-text);background:var(--note-bg);border:1px solid var(--note-line);border-radius:4px;padding:2px 8px;margin-left:10px;white-space:nowrap}
 .sec .fict{position:relative;top:-6px}
 .agent-note{font-size:15px}
+.agent-jump{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin-top:26px;padding-top:20px;border-top:1px solid var(--rule);max-width:780px}
+.agent-jump p{margin:0}
+.agent-sec .help-box,.agent-sec .avatar-ph.doc{background:var(--bg)}
+.agent-sec .quote{max-width:780px;margin-top:30px}
+.agent-sec h2.sec:focus{outline:none}
 </style>
 <script>
 window.__ytBlocked=false;
@@ -517,7 +522,6 @@ document.addEventListener("securitypolicyviolation",function(e){
         <li><a href="#/news" data-route="news">News</a></li>
         <li><a href="#/faq" data-route="faq">FAQ</a></li>
         <li><a href="#/story" data-route="story">Share your story</a></li>
-        <li><a href="#/agents" data-route="agents">For agents</a></li>
         <li><a href="#/contact" data-route="contact">Contact</a></li>
       </ul>
       <button type="button" class="btn btn-red js-updates">Get updates</button>
@@ -802,8 +806,12 @@ document.addEventListener("securitypolicyviolation",function(e){
   <div class="wrap page-head">
     <h1 class="display h1-one h1-long" tabindex="-1">Your claim belongs in the record.</h1>
     <p class="lede">If State Farm denied or underpaid your claim in <span data-s="name">Arizona</span>, tell us what happened. Your story helps show how many people this has touched. We read every submission, and your story stays private unless you check the box that lets us share it.</p>
+    <div class="agent-jump">
+      <p><strong>Are you a State Farm agent and want to share your story?</strong></p>
+      <a class="btn btn-line" href="#/agents" data-jump="agents">Go to the agent form</a>
+    </div>
   </div>
-  <div class="wrap two" style="padding-top:28px;padding-bottom:72px">
+  <div class="wrap two" id="story-form" style="padding-top:28px;padding-bottom:72px">
     <div>
       <form class="form-grid js-demo" data-confirm="Story sent. Thank you for telling us what happened." novalidate data-note="counsel|Saxum reviews submissions on Whitten Burrage's behalf. Counsel should treat this as if it routes to the firm (lawyer advertising and solicitation rules).">
         <div class="field"><label for="st-name">Name</label><input id="st-name" type="text" autocomplete="name" required></div>
@@ -837,21 +845,17 @@ document.addEventListener("securitypolicyviolation",function(e){
       <p class="small" style="margin:0">A reporter, or writing about something other than your own claim? <a href="#/contact">Contact us</a>.</p>
     </div>
   </div>
-</div>
-
-<!-- ================= AGENTS ================= -->
-<div class="page" data-page="agents" data-title="For State Farm agents | State Fraud AZ">
-  <div class="wrap page-head">
-    <h1 class="display h1-one h1-long" tabindex="-1">Agents see it from the inside.</h1>
-    <p class="lede">State Farm agents sell the policies and hear from customers when a claim goes wrong. If you’re a current or former agent, work on an agent’s staff, or handled claims, tell us what you’ve seen. You can stay anonymous.</p>
-    <figure class="quote" style="max-width:780px;margin-top:30px" data-note="confirm|Same quote and attribution as the home page. The agent is unnamed on purpose.">
+  <section class="tint agent-sec" id="agents" aria-labelledby="agents-h">
+    <div class="wrap">
+      <h2 class="sec" id="agents-h" tabindex="-1">Agents see it from the inside.</h2>
+      <p class="lede">State Farm agents sell the policies and hear from customers when a claim goes wrong. If you’re a current or former agent, work on an agent’s staff, or handled claims, tell us what you’ve seen. You can stay anonymous.</p>
+      <figure class="quote" data-note="confirm|Same quote and attribution as the home page. The agent is unnamed on purpose.">
       <blockquote>We now pay really low and customers fight to get what we owe them …</blockquote>
       <figcaption><span class="avatar-ph doc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h9l5 5v15H6z"/><path d="M15 2v5h5"/><path d="M9 12h8M9 16h8M9 8h3"/></svg></span><span><b>A State Farm agent in Kentucky</b>In a 2021 letter to company leadership, made public in court in August 2026. <a href="https://www.thenation.com/article/society/state-farm-oklahoma/" target="_blank" rel="noopener">J.C. Hallman, The Nation</a></span></figcaption>
     </figure>
-  </div>
-  <div class="wrap two" style="padding-top:28px;padding-bottom:72px">
-    <div>
-      <form class="form-grid js-demo" data-confirm="Thank you. An editor will read what you sent." novalidate data-note="counsel|Agent submissions need counsel review before launch: anonymity and how identities are protected, agents' contract and confidentiality obligations to State Farm, what happens if someone sends company documents or customer information, and solicitation rules if a submission reaches the firm.">
+      <div class="two" style="margin-top:36px">
+        <div>
+          <form class="form-grid js-demo" data-confirm="Thank you. An editor will read what you sent." novalidate data-note="counsel|Agent submissions need counsel review before launch: anonymity and how identities are protected, agents' contract and confidentiality obligations to State Farm, what happens if someone sends company documents or customer information, and solicitation rules if a submission reaches the firm.">
         <div class="field"><label for="ag-role">Your role</label><select id="ag-role" required><option value="">Choose one</option><option>Current State Farm agent</option><option>Former State Farm agent</option><option>Agency staff</option><option>Claims adjuster or claims staff</option><option>Something else</option></select></div>
         <div class="field"><label for="ag-state">State</label><input id="ag-state" type="text" required></div>
         <div class="field"><label for="ag-years">Years with State Farm (optional)</label><input id="ag-years" type="text" inputmode="numeric"></div>
@@ -867,15 +871,17 @@ document.addEventListener("securitypolicyviolation",function(e){
         <div class="full"><button class="btn btn-red" type="submit">Send</button></div>
       </form>
       <div class="confirm" role="status" aria-live="polite"></div>
-    </div>
-    <div style="display:grid;gap:24px;align-content:start">
-      <div class="help-box agent-note">
-        <p style="margin-bottom:6px"><strong>How we handle what you send</strong></p>
-        <p style="margin:0">An editor reads every submission. Nothing is published without your OK, and we remove details that could identify you or your customers.</p>
+        </div>
+        <div style="display:grid;gap:24px;align-content:start">
+          <div class="help-box agent-note">
+            <p style="margin-bottom:6px"><strong>How we handle what you send</strong></p>
+            <p style="margin:0">An editor reads every submission. Nothing is published without your OK, and we remove details that could identify you or your customers.</p>
+          </div>
+          <p class="small" style="margin:0">A homeowner with a claim? <a href="#/story" data-jump="story-form">Share your story</a> instead.</p>
+        </div>
       </div>
-      <p class="small" style="margin:0">A homeowner with a claim? <a href="#/story">Share your story</a> instead.</p>
     </div>
-  </div>
+  </section>
 </div>
 
 <!-- ================= CONTACT ================= -->
@@ -966,7 +972,6 @@ document.addEventListener("securitypolicyviolation",function(e){
           <li><a href="#/news">News and records</a></li>
           <li><a href="#/faq">FAQs</a></li>
           <li><a href="#/story">Share your story</a></li>
-          <li><a href="#/agents">For State Farm agents</a></li>
           <li><a href="#/contact">Contact us</a></li>
         </ul>
       </div>
@@ -1128,8 +1133,16 @@ document.addEventListener("securitypolicyviolation",function(e){
   var pages = {};
   document.querySelectorAll("[data-page]").forEach(function(p){ pages[p.getAttribute("data-page")] = p; });
   var nav = document.getElementById("nav"), menuBtn = document.getElementById("menuBtn");
+  var ALIAS = {agents:{page:"story", anchor:"agents"}};
+  function jumpTo(id){
+    var el = document.getElementById(id); if (!el) return;
+    el.scrollIntoView({block:"start"});
+    var h = el.querySelector("h2[tabindex]");
+    if (h) h.focus({preventScroll:true});
+  }
   function route(){
     var key = (location.hash.replace(/^#\/?/, "") || "home").split(/[?#]/)[0];
+    var alias = ALIAS[key]; if (alias) key = alias.page;
     if (!pages[key]) key = "home";
     Object.keys(pages).forEach(function(k){ pages[k].classList.toggle("active", k === key); });
     document.querySelectorAll("[data-route]").forEach(function(a){
@@ -1142,7 +1155,16 @@ document.addEventListener("securitypolicyviolation",function(e){
     if (h && route.ran) h.focus({preventScroll:true});
     route.ran = true;
     if (window.__fitCaptions) requestAnimationFrame(window.__fitCaptions);
+    if (alias) requestAnimationFrame(function(){ jumpTo(alias.anchor); });
   }
+  document.addEventListener("click", function(e){
+    var a = e.target.closest("a[data-jump]"); if (!a) return;
+    var el = document.getElementById(a.getAttribute("data-jump"));
+    if (!el || !el.closest(".page.active")) return;
+    e.preventDefault();
+    history.replaceState(null, "", a.getAttribute("href"));
+    jumpTo(a.getAttribute("data-jump"));
+  });
   window.addEventListener("hashchange", route);
   route();
   menuBtn.addEventListener("click", function(){
