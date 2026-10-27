@@ -484,7 +484,8 @@ html.review .rn b{font-weight:800}
 .fict{display:inline-block;vertical-align:middle;font-family:var(--font);font-size:12px;font-weight:700;letter-spacing:.02em;line-height:1.2;color:var(--note-text);background:var(--note-bg);border:1px solid var(--note-line);border-radius:4px;padding:2px 8px;margin-left:10px;white-space:nowrap}
 .sec .fict{position:relative;top:-6px}
 .agent-note{font-size:15px}
-.agent-jump{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin-top:26px;padding-top:20px;border-top:1px solid var(--rule);max-width:780px}
+.agent-jump{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 24px;margin-top:30px;background:var(--red);color:#fff;border-radius:10px;padding:26px 30px;margin-bottom:12px}
+.agent-jump strong{color:#fff;font-size:1.15rem}
 .agent-jump p{margin:0}
 .agent-sec .help-box,.agent-sec .avatar-ph.doc{background:var(--bg)}
 .agent-sec .quote{max-width:780px;margin-top:30px}
@@ -808,7 +809,7 @@ document.addEventListener("securitypolicyviolation",function(e){
     <p class="lede">If State Farm denied or underpaid your claim in <span data-s="name">Arizona</span>, tell us what happened. Your story helps show how many people this has touched. We read every submission, and your story stays private unless you check the box that lets us share it.</p>
     <div class="agent-jump">
       <p><strong>Are you a State Farm agent and want to share your story?</strong></p>
-      <a class="btn btn-red" href="#/agents" data-jump="agents">Go to the agent form</a>
+      <a class="btn btn-white" href="#/agents" data-jump="agents">Go to the agent form</a>
     </div>
   </div>
   <div class="wrap two" id="story-form" style="padding-top:28px;padding-bottom:72px">
@@ -855,7 +856,7 @@ document.addEventListener("securitypolicyviolation",function(e){
         <div class="field"><label for="ag-role">Your role</label><select id="ag-role" required><option value="">Choose one</option><option>Current State Farm agent</option><option>Former State Farm agent</option><option>Agency staff</option><option>Claims adjuster or claims staff</option><option>Something else</option></select></div>
         <div class="field"><label for="ag-state">State</label><input id="ag-state" type="text" required></div>
         <div class="field"><label for="ag-years">Years with State Farm (optional)</label><input id="ag-years" type="text" inputmode="numeric"></div>
-        <div class="field"><label for="ag-email">Email (optional)</label><input id="ag-email" type="email" autocomplete="email"><span class="hint">Leave blank to stay fully anonymous. We can’t follow up without it.</span></div>
+        <div class="field"><label for="ag-email">Email (optional)</label><input id="ag-email" type="email" autocomplete="email"></div>
         <div class="field full"><label for="ag-story">What should people know?</label><textarea id="ag-story" required></textarea></div>
         <fieldset class="full"><legend>If we share your perspective</legend>
           <div class="radio-row">
