@@ -37,6 +37,9 @@ a{color:inherit}
 .poc .wrap{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between;padding-top:8px;padding-bottom:8px}
 .poc p{margin:0;max-width:60ch}
 .poc-controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.cui{background:#141414;color:#fff;text-align:center;font-family:inherit;font-size:13px;line-height:1.45;font-weight:700;letter-spacing:.02em;padding:9px 16px}
+.cui p{margin:0;color:#fff}
+.cui-foot{border-top:1px solid #3a3a3a}
 .seg{display:inline-flex;border:1px solid var(--muted);border-radius:6px;overflow:hidden}
 .seg button{font:inherit;font-size:14px;background:transparent;color:var(--text);border:0;padding:6px 10px;min-height:36px;cursor:pointer}
 .seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
@@ -500,6 +503,8 @@ document.addEventListener("securitypolicyviolation",function(e){
 </head>
 <body>
 <a class="skip" href="#main" id="skipLink">Skip to content</a>
+
+<div class="cui cui-top" role="note" aria-label="Document status"><p>Confidential: For Official Use Only</p><p>DRAFT - Subject to Review and Revision</p></div>
 
 <div class="poc" role="region" aria-label="Proof of concept controls">
   <div class="wrap">
@@ -989,6 +994,7 @@ document.addEventListener("securitypolicyviolation",function(e){
     </div>
   </div>
 </footer>
+<div class="cui cui-foot" role="note" aria-label="Document status"><p>Confidential: For Official Use Only</p><p>DRAFT - Subject to Review and Revision</p></div>
 
 <aside class="drawer" id="drawer" aria-label="All review notes" aria-hidden="true">
   <div class="drawer-head"><h2>Review notes</h2><button type="button" class="chip" id="drawerClose">Close</button></div>
